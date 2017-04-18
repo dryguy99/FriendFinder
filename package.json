@@ -1,0 +1,30 @@
+{
+  "name": "friendfinder",
+  "version": "1.0.0",
+  "description": "find a friend who matches my dating profile",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dryguy99/FriendFinder.git"
+  },
+  "keywords": [
+    "dating",
+    "friend",
+    "finder"
+  ],
+  "author": "timothy dry",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dryguy99/FriendFinder/issues"
+  },
+  "homepage": "https://github.com/dryguy99/FriendFinder#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0"
+  }
+}
