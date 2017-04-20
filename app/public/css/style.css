@@ -14,8 +14,8 @@ section {
 #title {
 	position: fixed;
 	top: 0px;
-	width: 82vw;
-	margin-left: 4.4vw;
+	width: 88vw;
+	margin-left: 1vw;
 	padding: 2vw;
 	background: url('../images/black_paper.png');
 	border-radius: 2vw;
@@ -40,12 +40,12 @@ section {
 	color: black;
 	border-radius: 10vw;
 }
-iframe {
+#myiframe {
 	margin-top: 24vw;
-	min-width: 90vw;
-	min-height: 63vw;
-	border: none;
+	margin-left: 1vw;
 	
+	border: none;
+	display: none;
 }
 #mylabel {
 	margin-left: 2vw;
@@ -60,7 +60,8 @@ iframe {
 	background: #d9d9d9;
 	border: none;
 	font-size: 2vw;
-	min-width: 31vw
+	min-width: 31vw;
+	color: black;
 }
 #survey, #navbtns {
 	float:left;
@@ -69,7 +70,7 @@ iframe {
 	margin-left: 2vw;
 }
 #navbtns {
-	display: none;
+	display: block;
 }
 .myframe {
 	font-family: 'Work Sans', sans-serif;
