@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang "en-us">
+<head>
+	<meta charset="utf-8">
+	<link rel="icon" href="./images/favicon.ico">
+	<title>Friend Finder|Timothy Dry</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Rammetto+One|Work+Sans:500,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script
+		  src="https://code.jquery.com/jquery-3.2.1.min.js"
+		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		  crossorigin="anonymous"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	  
+</head>
+<body>
+	<section class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<div id="title">
+					<h1>FRIEND FINDER</h1>
+					<hr>
+					<h3 id="mydir">Answer a few basic questions.<br><span id="mydir2">Then find the friend with the greatest compatibility!</span></h3>
+					<span>
+						<button id='survey' class="btn btn-lg btn-primary">Start Survey</button>
+						<button id='navbtns' type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">My Friend Match</button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<iframe id='myiframe' src="">
+					<!--src="./survey.html"-->
+				</iframe>
+			</div>
+		</div>
+		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+			<div class="modal-dialog modal-lg" role="document">
+   				<div class="modal-content text-center">
+     			 ...
+
+     			<div class="modal-footer">
+		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    			</div>
+    			
+		      </div>
+			</div>
+		</div>
+	
+		<footer class="row footer container-fluid">
+	 			<div class="col-sm-12 text-center">
+	 				<br>
+	 				<a id="me" href="https://timothy-dry.herokuapp.com" target="_blank"<h4 id="myfooter">Copyright &copy; 2017 Timothy Dry</h4></a>
+				</div>
+		</footer>
+	</section>
+<script type="text/javascript" language="javascript" src="../survey.js"></script>
+<script type="text/javascript" language="javascript" src="../home.js"></script>
+</body>
+</html>

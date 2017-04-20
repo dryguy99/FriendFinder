@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Friend Finder | Timothy Dry</title>
+	<link href="https://fonts.googleapis.com/css?family=Rammetto+One|Work+Sans:500,700,800" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<script
+		  src="https://code.jquery.com/jquery-3.2.1.min.js"
+		  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+		  crossorigin="anonymous"></script>
+	  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	  <script type="text/javascript" language="javascript" src="./survey.js"></script>
+	  <script type="text/javascript" language="javascript" src="./home.js"></script>
+</head>
+<body>
+				<div class="setup text-center">
+					<label id='mylabel1'>Name:
+						<input id='name' placeholder="Jane Doe - required!">
+					</label>
+					<label id='mylabel'>Picture Link:
+						<input id='mypic' placeholder="http://myPicURL.com - required!">
+					</label>
+				</div>
+				<div class="myframe text-center">
+					<p id="direct">Please rate ten questions on a scale of 1 to 10.<br>Where <span class="bd1">1</span> means you completly <span class="bd1">DISAGREE</span>,<br>and <span class="bd2">10</span> means you completly <span class="bd2">AGREE</span>.</p>
+				</div>
+				<section id="group1" class="myframe text-center">
+					<div id="q0">
+						<p>“I am really passionate about something right now!”</p><span>DISAGREE </span>
+						<span class="q0 btn" data-selected="false" value="1">1</span><span class="q0 btn" data-selected="false" value="2">2</span><span class="q0 btn" data-selected="false" value="3">3</span><span class="q0 btn" data-selected="false" value="4">4</span><span class="q0 btn" data-selected="false" value="5">5</span><span class="q0 btn" data-selected="false" value="6">6</span><span class="q0 btn" data-selected="false" value="7">7</span><span class="q0 btn" data-selected="false" value="8">8</span><span class="q0 btn" data-selected="false" value="9">9</span><span class="q0 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q1" class="text-center">
+						<p>“I am aware of one thing I would like to go back and do differently in my life.”</p><span>DISAGREE </span>
+						<span class="q1 btn" data-selected="false" value="1">1</span><span class="q1 btn" data-selected="false" value="2">2</span><span class="q1 btn" data-selected="false" value="3">3</span><span class="q1 btn" data-selected="false" value="4">4</span><span class="q1 btn" data-selected="false" value="5">5</span><span class="q1 btn" data-selected="false" value="6">6</span><span class="q1 btn" data-selected="false" value="7">7</span><span class="q1 btn" data-selected="false" value="8">8</span><span class="q1 btn" data-selected="false" value="9">9</span><span class="q1 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q2" class="text-center">
+						<p>"I love spending time outdoors."</p><span>DISAGREE </span>
+						<span class="q2 btn" data-selected="false" value="1">1</span><span class="q2 btn" data-selected="false" value="2">2</span><span class="q2 btn" data-selected="false" value="3">3</span><span class="q2 btn" data-selected="false" value="4">4</span><span class="q2 btn" data-selected="false" value="5">5</span><span class="q2 btn" data-selected="false" value="6">6</span><span class="q2 btn" data-selected="false" value="7">7</span><span class="q2 btn" data-selected="false" value="8">8</span><span class="q2 btn" data-selected="false" value="9">9</span><span class="q2 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div>
+					<div class="error"> Please Answer All Questions. </div><br>
+					<button id="myq1" class="btn btn-lg btn-primary mybtn" data-selected="false" type="submit">SUBMIT</button>
+				</section>
+				<section id="group2" class="myframe text-center">
+					<div id="q3">
+						<p>"I workout 3 or more times a week."</p><span>DISAGREE </span>
+						<span class="q3 btn" data-selected="false" value="1">1</span><span class="q3 btn" data-selected="false" value="2">2</span><span class="q3 btn" data-selected="false" value="3">3</span><span class="q3 btn" data-selected="false" value="4">4</span><span class="q3 btn" data-selected="false" value="5">5</span><span class="q3 btn" data-selected="false" value="6">6</span><span class="q3 btn" data-selected="false" value="7">7</span><span class="q3 btn" data-selected="false" value="8">8</span><span class="q3 btn" data-selected="false" value="9">9</span><span class="q3 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q4">
+						<p>"I love curling up and reading a book on the weekends."</p><span>DISAGREE </span>
+						<span class="q4 btn" data-selected="false" value="1">1</span><span class="q4 btn" data-selected="false" value="2">2</span><span class="q4 btn" data-selected="false" value="3">3</span><span class="q4 btn" data-selected="false" value="4">4</span><span class="q4 btn" data-selected="false" value="5">5</span><span class="q4 btn" data-selected="false" value="6">6</span><span class="q4 btn" data-selected="false" value="7">7</span><span class="q4 btn" data-selected="false" value="8">8</span><span class="q4 btn" data-selected="false" value="9">9</span><span class="q4 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q5">
+						<p>"I like to get my hands dirty"</p><span>DISAGREE </span>
+						<span class="q5 btn" data-selected="false" value="1">1</span><span class="q5 btn" data-selected="false" value="2">2</span><span class="q5 btn" data-selected="false" value="3">3</span><span class="q5 btn" data-selected="false" value="4">4</span><span class="q5 btn" data-selected="false" value="5">5</span><span class="q5 btn" data-selected="false" value="6">6</span><span class="q5 btn" data-selected="false" value="7">7</span><span class="q5 btn" data-selected="false" value="8">8</span><span class="q5 btn" data-selected="false" value="9">9</span><span class="q5 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q6">
+						<p>"I want to go skydiving."</p><span>DISAGREE </span>
+						<span class="q6 btn" data-selected="false" value="1">1</span><span class="q6 btn" data-selected="false" value="2">2</span><span class="q6 btn" data-selected="false" value="3">3</span><span class="q6 btn" data-selected="false" value="4">4</span><span class="q6 btn" data-selected="false" value="5">5</span><span class="q6 btn" data-selected="false" value="6">6</span><span class="q6 btn" data-selected="false" value="7">7</span><span class="q6 btn" data-selected="false" value="8">8</span><span class="q6 btn" data-selected="false" value="9">9</span><span class="q6 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div>
+					<div class="error"> Please Answer All Questions. </div><br>
+					<button id="myq2" class="btn btn-lg btn-primary mybtn" data-selected="false" type="submit">SUBMIT</button>
+				</section>
+				<section id="group3" class="myframe text-center">
+					<div id="q7">
+						<p>"I use Twitter, Facebook and/or Instagram 10 or more times per week."</p><span>DISAGREE </span>
+						<span class="q7 btn" data-selected="false" value="1">1</span><span class="q7 btn" data-selected="false" value="2">2</span><span class="q7 btn" data-selected="false" value="3">3</span><span class="q7 btn" data-selected="false" value="4">4</span><span class="q7 btn" data-selected="false" value="5">5</span><span class="q7 btn" data-selected="false" value="6">6</span><span class="q7 btn" data-selected="false" value="7">7</span><span class="q7 btn" data-selected="false" value="8">8</span><span class="q7 btn" data-selected="false" value="9">9</span><span class="q7 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q8">
+						<p>"I love dogs."</p><span>DISAGREE </span>
+						<span class="q8 btn" data-selected="false" value="1">1</span><span class="q8 btn" data-selected="false" value="2">2</span><span class="q8 btn" data-selected="false" value="3">3</span><span class="q8 btn" data-selected="false" value="4">4</span><span class="q8 btn" data-selected="false" value="5">5</span><span class="q8 btn" data-selected="false" value="6">6</span><span class="q8 btn" data-selected="false" value="7">7</span><span class="q8 btn" data-selected="false" value="8">8</span><span class="q8 btn" data-selected="false" value="9">9</span><span class="q8 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div><hr>
+					<div id="q9">
+						<p>"My ideal vacation is a week at the beach."</p><span>DISAGREE </span>
+						<span class="q9 btn" data-selected="false" value="1">1</span><span class="q9 btn" data-selected="false" value="2">2</span><span class="q9 btn" data-selected="false" value="3">3</span><span class="q9 btn" data-selected="false" value="4">4</span><span class="q9 btn" data-selected="false" value="5">5</span><span class="q9 btn" data-selected="false" value="6">6</span><span class="q9 btn" data-selected="false" value="7">7</span><span class="q9 btn" data-selected="false" value="8">8</span><span class="q9 btn" data-selected="false" value="9">9</span><span class="q9 btn" data-selected="false" value="10">10</span><span> AGREE</span>
+					</div>
+					<div class="error"> Please Answer All Questions. </div><br>
+					<button id="myq3" class="btn btn-lg btn-primary mybtn" data-selected="false" type="submit">SUBMIT</button>
+				</section>
+
+
+
+
+</body>
+</html>				
