@@ -57,8 +57,6 @@
 							<p>"I love spending time outdoors."</p><span>DISAGREE </span>
 							<span class="q2 btn" data-selected="false" value="1">1</span><span class="q2 btn" data-selected="false" value="2">2</span><span class="q2 btn" data-selected="false" value="3">3</span><span class="q2 btn" data-selected="false" value="4">4</span><span class="q2 btn" data-selected="false" value="5">5</span><span class="q2 btn" data-selected="false" value="6">6</span><span class="q2 btn" data-selected="false" value="7">7</span><span class="q2 btn" data-selected="false" value="8">8</span><span class="q2 btn" data-selected="false" value="9">9</span><span class="q2 btn" data-selected="false" value="10">10</span><span> AGREE</span>
 						</div>
-						<div class="error"> Please Answer All Questions. </div><br>
-						<button id="myq1" class="btn btn-lg btn-primary mybtn" data-selected="false" type="submit">SUBMIT</button>
 					</section>
 					<section id="group2" class="myframe text-center">
 						<div id="q3">
@@ -77,8 +75,6 @@
 							<p>"I want to go skydiving."</p><span>DISAGREE </span>
 							<span class="q6 btn" data-selected="false" value="1">1</span><span class="q6 btn" data-selected="false" value="2">2</span><span class="q6 btn" data-selected="false" value="3">3</span><span class="q6 btn" data-selected="false" value="4">4</span><span class="q6 btn" data-selected="false" value="5">5</span><span class="q6 btn" data-selected="false" value="6">6</span><span class="q6 btn" data-selected="false" value="7">7</span><span class="q6 btn" data-selected="false" value="8">8</span><span class="q6 btn" data-selected="false" value="9">9</span><span class="q6 btn" data-selected="false" value="10">10</span><span> AGREE</span>
 						</div>
-						<div class="error"> Please Answer All Questions. </div><br>
-						<button id="myq2" class="btn btn-lg btn-primary mybtn"  type="submit">SUBMIT</button>
 					</section>
 					<section id="group3" class="myframe text-center">
 						<div id="q7">
@@ -93,22 +89,28 @@
 							<p>"My ideal vacation is a week at the beach."</p><span>DISAGREE </span>
 							<span class="q9 btn" data-selected="false" value="1">1</span><span class="q9 btn" data-selected="false" value="2">2</span><span class="q9 btn" data-selected="false" value="3">3</span><span class="q9 btn" data-selected="false" value="4">4</span><span class="q9 btn" data-selected="false" value="5">5</span><span class="q9 btn" data-selected="false" value="6">6</span><span class="q9 btn" data-selected="false" value="7">7</span><span class="q9 btn" data-selected="false" value="8">8</span><span class="q9 btn" data-selected="false" value="9">9</span><span class="q9 btn" data-selected="false" value="10">10</span><span> AGREE</span>
 						</div>
-						<div class="error"> Please Answer All Questions. </div><br>
-						<button id="myq3" class="btn btn-lg btn-primary mybtn"  type="submit">SUBMIT</button>
 					</section>
-				</section>
+					<div class="error"> Please Answer All Questions. </div><br>
+					<button id="myq3" class="btn btn-lg btn-primary mybtn"  type="submit">SUBMIT</button>
+				</section><!--end survey -->
 			</div>
 		</div>
 		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 			<div class="modal-dialog modal-lg" role="document">
-   				<div class="modal-content text-center">
-     			 ...
+   				<div class="modal-content">
+   					<div class="modal-header">
+        				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        				<h3 class="modal-title">Best Match</h3>
+      				</div>
+     			 	<div class="modal-body text-center">
+        				<p id="friend">Please Take the Survey to Find Your Match!&hellip;</p>
+						<a id='photo' href="#"></a>
+      				</div>
 
-     			<div class="modal-footer">
-		        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	     			<div class="modal-footer">
+			        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    			</div>
     			</div>
-    			
-		      </div>
 			</div>
 		</div>
 	
@@ -120,6 +122,5 @@
 		</footer>
 	</section>
 <script type="text/javascript" language="javascript" src="../survey.js"></script>
-<!--script type="text/javascript" language="javascript" src="../home.js"></script-->
 </body>
 </html>

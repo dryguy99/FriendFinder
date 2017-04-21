@@ -55,12 +55,23 @@ router.use(function(req, res, next) {
 // test route to make sure everything is working (accessed at GET http://localhost:3000/api)
 // write routes here
 router.get('/', function(req, res) {
-	res.send("Success!");
+	runFind();
+
+	
 });
 
 router.route('/survey')
 // create a basic card (accessed at POST http://localhost:3000/api/basic)
     .post(function(req, res) {
+    	var name = req.body.name;
+    	var photo = req.body.photo;
+    	var qArray = req.body.scores;
+    	var total = parseInt(req.body.total);
+    	var q0, q1, q2, q3, q4, q5, q6, q7, q8, q9 = 0;
+    	for (var i = 0; i < qArray.length; i++) {
+    		var q+i = parseInt(qArray[i]);
+    	}
+		postFriend(name, photo, q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,total);
     	res.send("Success!");
     	console.log(req.body);
 });
@@ -74,3 +85,24 @@ app.use('/', router);
 // =============================================================================
 app.listen(port);
 console.log('Magic happens on port ' + port);
+
+function postFriend(name, photo, q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,total){
+    	//console.log(front + " : " + back);
+		connection.query("INSERT INTO friends (name, photo, q0,q1,q2,q3,q4,q5,q6,q7,q8,q9,total) VALUES ('" + name + "','" + photo + "'," + q0+ ","+ q1 + ","+ q2 +","+ q3+","+q4+","+q5+","+q6+","+q7+","+q8","+q9+","+total");", function (error, results, fields){
+			if (error) {res.send(error);}
+		    // save the card and check for errors
+		    res.json({ message: 'Card created!' });
+		});
+}
+
+function runFind(){
+		connection.query("SELECT id, name, photo, total FROM friends ORDER BY total;", function (error, results, fields){
+			if (error) {
+				res.send(error);
+			}
+			//console.log('THE SOLUTION IS ', JSON.stringify(results));
+
+			res.send(results);
+		});
+		
+	}		

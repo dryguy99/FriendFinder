@@ -150,6 +150,13 @@ button:focus {
 #group3 {
 	display: none;
 }
+.modal-title {
+	font-family: 'Rammetto One', cursive;
+	color: #4da6ff;
+}
+.modal-header, .modal-body, .modal-footer {
+	background: url('../images/paper_2.png');
+}
 
 @media screen and (max-width: 359px) {
 	section {
