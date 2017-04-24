@@ -15,7 +15,7 @@ var orm = {
     });
   },
   select: function(col, table, orderCol, orderDes, CB) {
-    var queryString = "SELECT ?? FROM ?? ORDER BY ? ?";
+    var queryString = "SELECT ?? FROM ?? ORDER BY ?? ?";
     connection.query(queryString, [col, table, orderCol, orderDes], function(err, result) {
       console.log(result);
       CB(result);
