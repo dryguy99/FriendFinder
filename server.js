@@ -7,8 +7,6 @@ var app        = express();                 // define our app using express
 var bodyParser = require('body-parser');	// parse the json data
 var fs = require('fs');
 var orm = require("./app/orm.js");			// call the mySQL queires
-
-var AST = require('node-sqlparser');		// call node sql parser
 // fix CORS errors
 // var allowCrossDomain = function(req, res, next) {
 //     res.header('Access-Control-Allow-Origin', '*');
@@ -39,54 +37,35 @@ var router = express.Router();// get an instance of the express Router
 // middleware to use for all requests
 router.use(function(req, res, next) {
     // do logging
-    console.log('Something is happening.');
+    //console.log('Something is happening.');
     next();
 });
-// test route to make sure everything is working (accessed at GET http://localhost:3000/api)
+// test route to make sure everything is working (accessed at GET http://localhost:3000/)
 // write routes here
 router.get('/', function(req, res) {
-	// orm.selectAndOrder("name", "photo", "total", "total", "DESC", function (result) {
-	// 	console.log(result);
-	// 	res.send(result);
-	// });
+	
 	orm.select("*", "friends", function (results) {
 		res.send(results);
-		console.log(results);
-		// for (var i = 0; i < results.length; i++) {
-		// 	console.log("Name: " + results[i].name + " Photo: " + results[i].photo + " Total: " + results[i].total);
-		// }
 	});
 	
 });
 var qArray = [];
 router.route('/survey')
-// create a basic card (accessed at POST http://localhost:3000/api/basic)
+// create a basic card (accessed at POST http://localhost:3000/survey)
     .post(function(req, res) {
+    	qArray = [];
     	console.log(req.body);
     	qArray.push(req.body.name);
     	qArray.push(req.body.photo);
     	for (var i = 0; i < req.body.scores.length; i++) {
     		qArray.push(parseInt(req.body.scores[i]));
     	}
-    	// qArray.push(req.body.scores);
     	qArray.push(parseInt(req.body.total));
-    	
-    	console.log(" everything: " + qArray);
+    	//console.log(" everything: " + qArray);
     	orm.addtoDB(qArray, function(result) {
     		res.send("success: "+ result);
     	});
     	
-    	// function postFriend(name, photo, qArray, total){
-    	
-		// connection.query("INSERT INTO friends (name = ?, photo = ?, q0 = ?,q1 = ?,q2 = ?,q3 = ?,q4 = ?,q5 = ?,q6 = ?,q7 = ?,q8 = ?,q9 = ?,total = ?) VALUES" [ name, photo, qArray, total], function (error, results, fields){
-		// 	if (error) {res.send(error);}
-		//     // save the card and check for errors
-		//     res.json({ message: 'Card created!' });
-		// 	});
-		// }
-		// //postFriend(name, photo, qArray, total);
- 	  	//res.send("Success!");
-  //   	console.log(total);
 });
 
 // REGISTER OUR ROUTES -------------------------------
@@ -99,16 +78,3 @@ app.use('/', router);
 app.listen(port);
 console.log('Magic happens on port ' + port);
 
-
-
-// function runFind(){
-// 		connection.query("SELECT id, name, photo, total FROM friends ORDER BY id;", function (error, results, fields){
-// 			if (error) {
-// 				res.send(error);
-// 			}
-// 			//console.log('THE SOLUTION IS ', JSON.stringify(results));
-
-// 			res.send(results);
-// 		});
-		
-// 	}		

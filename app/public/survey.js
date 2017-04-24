@@ -1,5 +1,5 @@
 var mypost = false;
-myurl = "http://localhost:3000"
+myurl = "https://friend-dryguy.herokuapp.com"
 var q1 = 0;
 var q2 = 0;
 var q3 = 0;
@@ -18,69 +18,80 @@ var myObj = {
 			total:0};
 var name = "";
 var address = "";
+// on load set my listeners for the survey
 $(document).ready( function () {
-	console.log("Starting up");
+	
+	// handles question 1 selection
 	$(document).on("click", ".q0", function () {
 		$(this).attr("data-selected", "true");
 		q1 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 2 selection
 	$(document).on("click", ".q1", function () {
 		$(this).attr("data-selected", "true");
 		q2 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 3 selection
 	$(document).on("click", ".q2", function () {
 		$(this).attr("data-selected", "true");
 		q3 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 4 selection
 	$(document).on("click", ".q3", function () {
 		$(this).attr("data-selected", "true");
 		q4 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 5 selection
 	$(document).on("click", ".q4", function () {
 		$(this).attr("data-selected", "true");
 		q5 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 6 selection
 	$(document).on("click", ".q5", function () {
 		$(this).attr("data-selected", "true");
 		q6 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 7 selection
 	$(document).on("click", ".q6", function () {
 		$(this).attr("data-selected", "true");
 		q7 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 8 selection
 	$(document).on("click", ".q7", function () {
 		$(this).attr("data-selected", "true");
 		q8 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 9 selection
 	$(document).on("click", ".q8", function () {
 		$(this).attr("data-selected", "true");
 		q9 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
+	// handles question 10 selection
 	$(document).on("click", ".q9", function () {
 		$(this).attr("data-selected", "true");
 		q10 = parseInt($(this).attr("value"));
 		$(this).siblings().attr("data-selected", "false");
 
 	});
-	
+// handles finishing survey, posting to database and retrieving results
 	$(document).on("click", ".mybtn", function () {
 		$(".error").css("display", "none");
 		name = $('#name').val();
@@ -128,7 +139,7 @@ $(document).ready( function () {
 			qArray = [];
 			$("#navbtns").css("display", "block");
 			$('#survey').css("display", "block");
-			$('#myModal').modal("show");
+			getItem();
 
 		} else if (q4 != 0 && q5 != 0 && q6 != 0 && q7 != 0) {
 			$("#group2").css("display","none");
@@ -140,6 +151,7 @@ $(document).ready( function () {
 		}
 
 	});
+	// onclick to handle starting survey
 	$(document).on("click", "#survey", function () {
 		$('#survey').css("display", "none");
 		$('#navbtns').css("display", "none");
@@ -148,9 +160,6 @@ $(document).ready( function () {
 		$('#direct').css("display", "block");
 		$('#group1').css("display", "block");
 		$('#myq3').css('display', 'block');
-	});
-	$(document).on("click", "#navbtns", function () {
-		getItem();
 	});
 
 });
@@ -213,6 +222,11 @@ function getItem() {
 					} else if (tempTotal === 0 && thisId == data[i].id && i === 0) {
 						$("#friend").html(data[i+1].name);
                 		$("#photo").attr("src", data[i+1].photo);
+                		break;
+					} else if (tempTotal === 0 && thisId == data[i].id && ((i+1) === data.length)){
+						$("#friend").html(data[i-1].name);
+                		$("#photo").attr("src", data[i-1].photo);
+                		break;
 					} else if (tempTotal === 0 && thisId == data[i].id) {
 						var f1 = Math.abs(thisTotal - data[i-1].total);
 						var f2 = Math.abs(thisTotal - data[i+1].total);
@@ -223,9 +237,11 @@ function getItem() {
 							$("#friend").html(data[i-1].name);
                 			$("#photo").attr("src", data[i-1].photo);
 						}
-					} 
+						break;
+					}
 				}
-				
+				$('#myModal').modal("show");
+				// display the data to the concole for testing
                 for (i=0; i<data.length; i++){
                 	console.log("ID: " + data[i].id + " Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
                 }
@@ -238,4 +254,4 @@ function getItem() {
                 }
             }
         });
-    }//getItem()
+}//getItem()
