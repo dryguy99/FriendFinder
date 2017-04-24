@@ -161,7 +161,7 @@ $(document).ready( function () {
 		$('#group1').css("display", "block");
 		$('#myq3').css('display', 'block');
 	});
-
+getItem();
 });
 
 // post item to server
