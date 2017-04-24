@@ -1,4 +1,5 @@
 var mypost = false;
+myurl = "http://localhost:3000"
 var q1 = 0;
 var q2 = 0;
 var q3 = 0;
@@ -156,8 +157,8 @@ $(document).ready( function () {
 
 // post item to server
 function postItem(myJson) {
-	myurl = "http://localhost:3000/survey"
-	var urlTemp = myurl + "/";
+
+	var urlTemp = myurl + "/survey/";
         $.ajax({
             type: "POST",
             url: urlTemp,
@@ -187,10 +188,10 @@ function postItem(myJson) {
 }//postItem()
 
 function getItem() {
-		myurl = "http://localhost:3000/"
+		var urlTemp = myurl + "/";
         $.ajax({
             type: "GET",
-            url: myurl,
+            url: urlTemp,
             timeout: 4000,
             //data: { deck: utype },
             success: function(data) {
