@@ -45,6 +45,9 @@ router.use(function(req, res, next) {
 router.get('/', function(req, res) {
 	
 	orm.select("*", "friends", function (result) {
+		for (var i = 0; i < result.length; i++){
+			console.log("Name: " + result[i].name + " Total: " + result[i].total);
+		}
 		res.send(result);
 	});
 	
