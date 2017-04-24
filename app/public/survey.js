@@ -90,6 +90,7 @@ $(document).ready( function () {
 		if (q1 != 0 && q2 != 0 && q3 !=0 && name != "" && (address.includes("http://") || address.includes("https://") )) {
 			myObj.name = name;
 			myObj.photo = address;
+			console.log("MyOBJ: " + myObj);
 			$("#group1").css("display","none");
 			$("#group2").css("display", "block");
 			qArray.push(q1, q2, q3, q4);
@@ -105,6 +106,7 @@ $(document).ready( function () {
 			myObj.scores = qArray;
 			myObj.total = total;
 			$("myiframe").css("display", "none");
+			console.log(myObj);
 			postItem(myObj);
 			$('#direct').css('display', 'none');
 			$('#group3').css('display', 'none');
@@ -114,11 +116,14 @@ $(document).ready( function () {
 			for (var i = 0; i < 10; i++) {
 				$(".q"+i).attr('data-selected', "false");
 			}
+			myObj = {
+				name: "",
+				photo: "",
+				scores:[],
+				total:0};
+			name = "";
+			address = "";
 			q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 = 0;
-			myObj.name = "";
-			myObj.scores = [];
-			myObj.total = 0;
-			myObj.photo = "";
 			qArray = [];
 			$("#navbtns").css("display", "block");
 			$('#survey').css("display", "block");
@@ -176,3 +181,27 @@ function postItem(myJson) {
     mypost = true;
 
 }//postItem()
+
+function getItem(utype) {
+		myurl = "http://localhost:3000/"
+        $.ajax({
+            type: "GET",
+            url: myurl,
+            timeout: 4000,
+            //data: { deck: utype },
+            success: function(data) {
+                //show content
+                console.log('Success!:');
+                for (i=0; i<data.length; i++){
+                	console.log("Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
+                }
+            },
+            error: function(jqXHR, textStatus, err) {
+                //show error message
+                console.log('text status '+ textStatus +', err '+err);
+                if (err === "timeout") {
+                	console.log("waiting for server...");
+                }
+            }
+        });
+    }//getItem()

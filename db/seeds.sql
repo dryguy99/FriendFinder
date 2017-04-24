@@ -1,0 +1,5 @@
+INSERT INTO friends (name, photo, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, total) VALUES ('Duane', 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQIf0XD9OLE6qN_qxM5Js8W92zivCn8WV0fPndmiUhvYtrQYslo', 7, 6, 8, 3, 7, 9, 10, 2, 7, 1, 60);
+INSERT INTO friends (name, photo, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, total) VALUES ('Jane', 'http://smashinginterviews.com/wp-content/uploads/2016/04/JaneSeymourFeatured.jpg', 10, 10, 8, 9, 10, 6, 2, 9, 8, 10, 82);
+INSERT INTO friends (name, photo, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, total) VALUES ('Tara', 'http://www.dvdsreleasedates.com/pictures/800/23000/Tara-Reid.jpg', 1, 4, 10, 3, 1, 10, 4, 2, 7, 1, 43);
+INSERT INTO friends (name, photo, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, total) VALUES ('Kelly', 'http://static8.bornrichimages.com/cdn2/500/500/91/c/wp-content/uploads/2014/09/kel2_thumb.jpg', 8, 9, 2, 5, 8, 9, 4, 10, 8, 4, 67);
+INSERT INTO friends (name, photo, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, total) VALUES ('Paul', 'https://upload.wikimedia.org/wikipedia/commons/e/e8/PaulGiamattiSept2013TIFF.jpg', 3, 9, 10, 2, 10, 3, 10, 8, 7, 9, 71);
