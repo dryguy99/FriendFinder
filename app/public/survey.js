@@ -161,7 +161,7 @@ $(document).ready( function () {
 		$('#group1').css("display", "block");
 		$('#myq3').css('display', 'block');
 	});
-getItem();
+
 });
 
 // post item to server
@@ -210,9 +210,9 @@ function getItem() {
                 var thisName = data[idIndex].name;
                 var thisTotal = data[idIndex].total;
                 var thisId = data[idIndex].id;
-    //             data.sort(function(a, b){
-				//   return a.total < b.total;
-				// });
+                data.sort(function(a, b){
+				  return a.total < b.total;
+				});
 				for (var i = 0; i < data.length; i++) {
 					var tempTotal = Math.abs(thisTotal - data[i].total);
 					if (tempTotal === 0 && thisId != data[i].id) {
