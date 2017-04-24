@@ -92,6 +92,10 @@ section {
 	color:#00b300;
 }
 
+#photo {
+	width: 20vw;
+}
+
 .bd1 {
 	color:#004d99;
 	font-weight: 800;

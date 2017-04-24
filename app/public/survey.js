@@ -153,9 +153,10 @@ $(document).ready( function () {
 	});
 
 });
-myurl = "http://localhost:3000/survey"
+
 // post item to server
 function postItem(myJson) {
+	myurl = "http://localhost:3000/survey"
 	var urlTemp = myurl + "/";
         $.ajax({
             type: "POST",
@@ -195,14 +196,38 @@ function getItem() {
             success: function(data) {
                 //show content
                 console.log('Success!:');
+                var idIndex = data.length - 1;
+                var thisName = data[idIndex].name;
+                var thisTotal = data[idIndex].total;
+                var thisId = data[idIndex].id;
                 data.sort(function(a, b){
 				  return a.total < b.total;
 				});
+				for (var i = 0; i < data.length; i++) {
+					var tempTotal = Math.abs(thisTotal - data[i].total);
+					if (tempTotal === 0 && thisId != data[i].id) {
+						$("#friend").html(data[i].name);
+                		$("#photo").attr("src", data[i].photo);
+                		break;
+					} else if (tempTotal === 0 && thisId == data[i].id && i === 0) {
+						$("#friend").html(data[i+1].name);
+                		$("#photo").attr("src", data[i+1].photo);
+					} else if (tempTotal === 0 && thisId == data[i].id) {
+						var f1 = Math.abs(thisTotal - data[i-1].total);
+						var f2 = Math.abs(thisTotal - data[i+1].total);
+						if (f1 > f2) {
+							$("#friend").html(data[i+1].name);
+                			$("#photo").attr("src", data[i+1].photo);
+						} else {
+							$("#friend").html(data[i-1].name);
+                			$("#photo").attr("src", data[i-1].photo);
+						}
+					} 
+				}
+				
                 for (i=0; i<data.length; i++){
-                	console.log("Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
+                	console.log("ID: " + data[i].id + " Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
                 }
-                $("#friend").html(data[0].name);
-                $("#photo").attr("src", data[0].photo);
             },
             error: function(jqXHR, textStatus, err) {
                 //show error message

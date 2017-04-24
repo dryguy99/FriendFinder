@@ -49,7 +49,7 @@ router.get('/', function(req, res) {
 	// 	console.log(result);
 	// 	res.send(result);
 	// });
-	orm.select("*", "friends", "total", "DESC", function (results) {
+	orm.select("*", "friends", function (results) {
 		res.send(results);
 		console.log(results);
 		// for (var i = 0; i < results.length; i++) {
