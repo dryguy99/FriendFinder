@@ -44,7 +44,7 @@ router.use(function(req, res, next) {
 // write routes here
 router.get('/', function(req, res) {
 	
-	orm.select("*", "friends", "total", "DESC", function (results) {
+	orm.select("*", "friends", function (results) {
 		res.send(results);
 	});
 	
