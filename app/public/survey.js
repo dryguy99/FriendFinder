@@ -205,7 +205,7 @@ function getItem() {
             //data: { deck: utype },
             success: function(data) {
                 //show content
-                console.log('Success!:');
+                console.log('Success!:' + data[0]);
                 var idIndex = data.length - 1;
                 var thisName = data[idIndex].name;
                 var thisTotal = data[idIndex].total;
