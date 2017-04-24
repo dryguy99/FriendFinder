@@ -16,7 +16,7 @@ var orm = {
   },
   select: function(col, table, CB) {
     var queryString = "SELECT ?? FROM ??";
-    connection.query(queryString, [col, table], function(err, result) {
+    connection.query(queryString, col, table, function(err, result) {
       if (err) {
         console.log("my SQL error: " + err);
         CB(err);
