@@ -45,9 +45,16 @@ router.use(function(req, res, next) {
 // test route to make sure everything is working (accessed at GET http://localhost:3000/api)
 // write routes here
 router.get('/', function(req, res) {
-	orm.selectAndOrder("name", "photo", "total", "total", "DESC", function (result) {
-		console.log(result);
-		res.send(result);
+	// orm.selectAndOrder("name", "photo", "total", "total", "DESC", function (result) {
+	// 	console.log(result);
+	// 	res.send(result);
+	// });
+	orm.select("*", "friends", "total", "DESC", function (results) {
+		res.send(results);
+		console.log(results);
+		// for (var i = 0; i < results.length; i++) {
+		// 	console.log("Name: " + results[i].name + " Photo: " + results[i].photo + " Total: " + results[i].total);
+		// }
 	});
 	
 });

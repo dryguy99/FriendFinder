@@ -148,6 +148,9 @@ $(document).ready( function () {
 		$('#group1').css("display", "block");
 		$('#myq3').css('display', 'block');
 	});
+	$(document).on("click", "#navbtns", function () {
+		getItem();
+	});
 
 });
 myurl = "http://localhost:3000/survey"
@@ -182,7 +185,7 @@ function postItem(myJson) {
 
 }//postItem()
 
-function getItem(utype) {
+function getItem() {
 		myurl = "http://localhost:3000/"
         $.ajax({
             type: "GET",
@@ -192,9 +195,14 @@ function getItem(utype) {
             success: function(data) {
                 //show content
                 console.log('Success!:');
+                data.sort(function(a, b){
+				  return a.total < b.total;
+				});
                 for (i=0; i<data.length; i++){
                 	console.log("Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
                 }
+                $("#friend").html(data[0].name);
+                $("#photo").attr("src", data[0].photo);
             },
             error: function(jqXHR, textStatus, err) {
                 //show error message
