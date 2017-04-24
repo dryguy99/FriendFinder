@@ -15,8 +15,8 @@ var orm = {
     });
   },
   select: function(col, table, CB) {
-    var queryString = "SELECT ?? FROM ?? ORDER BY ?? ?";
-    connection.query(queryString, [col, table, orderCol, orderDes], function(err, result) {
+    var queryString = "SELECT ?? FROM ??";
+    connection.query(queryString, [col, table, function(err, result) {
       if (err) {
         console.log("my SQL error: " + err);
         CB(err);
