@@ -17,6 +17,10 @@ var orm = {
   select: function(col, table, orderCol, orderDes, CB) {
     var queryString = "SELECT ?? FROM ?? ORDER BY ?? ?";
     connection.query(queryString, [col, table, orderCol, orderDes], function(err, result) {
+      if (err) {
+        console.log("my SQL error: " + err);
+        CB(err);
+      }
       console.log(result);
       CB(result);
     });
