@@ -197,7 +197,6 @@ function getItem() {
      
             success: function(data) {
                 //show content
-                console.log('Success!:' + data[0]);
                 var idIndex = data.length - 1;  // index of current user
                 var thisName = data[idIndex].name; // name of current user
                 var myArray = []; //Array of answers to the questions for current user
@@ -215,12 +214,14 @@ function getItem() {
                 // console.log current user
  				console.log('My Array: ' + myArray + " Me: " + thisName + " Total: " + thisTotal);
 				var findArray = []; //array of differences of answers with other registered friends
+				var totalArray = [];
 				for (var i = 0; (i+1) < data.length; i++) {
 					// create an array of the abs differences in scores
 					createCompare(data[i]);
-					findArray.push(diff(myArray, compareArray));
+					var temp2 = diff(myArray, compareArray);
+					findArray.push(temp2);
+					totalArray.push(temp2;)
 				}
-				var totalArray = findArray;
 				totalArray.sort();
 				console.log(" findArray: " + findArray);
 				console.log("totalArray: " + totalArray);
