@@ -248,16 +248,16 @@ function getItem() {
 var compareArray = [];
 function createCompare (data) {
 	compareArray = [];
-	compareArray.push(data.q1);
-	compareArray.push(data.q2);
-	compareArray.push(data.q3);
-	compareArray.push(data.q4);
-	compareArray.push(data.q5);
-	compareArray.push(data.q6);
-	compareArray.push(data.q7);
-	compareArray.push(data.q8);
-	compareArray.push(data.q9);
-	compareArray.push(data.q10);
+	compareArray.push(parseInt(data.q1));
+	compareArray.push(parseInt(data.q2));
+	compareArray.push(parseInt(data.q3));
+	compareArray.push(parseInt(data.q4));
+	compareArray.push(parseInt(data.q5));
+	compareArray.push(parseInt(data.q6));
+	compareArray.push(parseInt(data.q7));
+	compareArray.push(parseInt(data.q8));
+	compareArray.push(parseInt(data.q9));
+	compareArray.push(parseInt(data.q10));
 }
 //--------------------------------------------
 // find diferences in arrays, return difference
