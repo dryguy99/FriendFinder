@@ -142,7 +142,7 @@ $(document).ready( function () {
 		} else if (q4 != 0 && q5 != 0 && q6 != 0 && q7 != 0) {
 			$("#group2").css("display","none");
 			$("#group3").css("display", "block");
-			qArray.push(q5, q6, q7);
+			qArray.push(q4, q5, q6, q7);
 		// if any section is not complete display error message
 		} else {
 			$(".error").css("display", "block");
@@ -201,16 +201,16 @@ function getItem() {
                 var idIndex = data.length - 1;  // index of current user
                 var thisName = data[idIndex].name; // name of current user
                 var myArray = []; //Array of answers to the questions for current user
-                myArray.push(data[idIndex].q1);
-                myArray.push(data[idIndex].q2);
-                myArray.push(data[idIndex].q3);
-                myArray.push(data[idIndex].q4);
-                myArray.push(data[idIndex].q5);
-                myArray.push(data[idIndex].q6);
-                myArray.push(data[idIndex].q7);
-                myArray.push(data[idIndex].q8);
-                myArray.push(data[idIndex].q9);
-                myArray.push(data[idIndex].q10);
+                myArray.push(parseInt(data[idIndex].q1));
+                myArray.push(parseInt(data[idIndex].q2));
+                myArray.push(parseInt(data[idIndex].q3));
+                myArray.push(parseInt(data[idIndex].q4));
+                myArray.push(parseInt(data[idIndex].q5));
+                myArray.push(parseInt(data[idIndex].q6));
+                myArray.push(parseInt(data[idIndex].q7));
+                myArray.push(parseInt(data[idIndex].q8));
+                myArray.push(parseInt(data[idIndex].q9));
+                myArray.push(parseInt(data[idIndex].q10));
                 var thisTotal = data[idIndex].total;
                 // console.log current user
  				console.log('My Array: ' + myArray + " Me: " + thisName + " Total: " + thisTotal);
@@ -266,8 +266,8 @@ function diff(arrayToCompareTo, comparedArray) {
 	var total = 0;
 	for(var i = 0; i < arrayToCompareTo.length; i++) {
 					
-		if (arrayToCompareTo[i] != arrayToCompareTo[i]) {
-			total += (Math.abs(arrayToCompareTo[i] - arrayToCompareTo[i]));
+		if (arrayToCompareTo[i] != comparedArray[i]) {
+			total += (Math.abs(arrayToCompareTo[i] - comparedArray[i]));
 		}
 	}
 	return total;
