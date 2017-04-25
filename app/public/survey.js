@@ -220,7 +220,7 @@ function getItem() {
 					createCompare(data[i]);
 					var temp2 = diff(myArray, compareArray);
 					findArray.push(temp2);
-					totalArray.push(temp2;)
+					totalArray.push(temp2);
 				}
 				totalArray.sort();
 				console.log(" findArray: " + findArray);
