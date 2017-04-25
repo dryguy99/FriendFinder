@@ -115,7 +115,7 @@ $(document).ready( function () {
 			myObj.scores = qArray;
 			myObj.total = friendTotal;
 			$("myiframe").css("display", "none");
-			console.log(myObj);
+			// send data to database
 			postItem(myObj);
 			$('#direct').css('display', 'none');
 			$('#group3').css('display', 'none');
@@ -211,8 +211,7 @@ function getItem() {
                 myArray.push(parseInt(data[idIndex].q9));
                 myArray.push(parseInt(data[idIndex].q10));
                 var thisTotal = data[idIndex].total;
-                // console.log current user
- 				console.log('My Array: ' + myArray + " Me: " + thisName + " Total: " + thisTotal);
+                
 				var findArray = []; //array of differences of answers with other registered friends
 				var totalArray = [];
 				for (var i = 0; (i+1) < data.length; i++) {
@@ -223,20 +222,12 @@ function getItem() {
 					totalArray.push(temp2);
 				}
 				totalArray.sort();
-				console.log(" findArray: " + findArray);
-				console.log("totalArray: " + totalArray);
 				var answer = findArray.indexOf(totalArray[0]); // index of closest match
-				console.log("Index: " + answer);
-				// console.log closest match
-				console.log('Total Array: ' + totalArray + " Friend: " + data[answer].name + " Total: " + data[answer].total);
 				$("#friend").html(data[answer].name);
                 $("#photo").attr("src", data[answer].photo);
                 // DISPLAY Friend in Modal
 				$('#myModal').modal("show");
-				// display the data to the concole for testing
-                // for (i=0; i<data.length; i++){
-                // 	console.log("ID: " + data[i].id + " Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
-                // }
+				
             },
             error: function(jqXHR, textStatus, err) {
                 //show error message
@@ -262,7 +253,6 @@ function createCompare (data) {
 	compareArray.push(parseInt(data.q8));
 	compareArray.push(parseInt(data.q9));
 	compareArray.push(parseInt(data.q10));
-	console.log("compareArray: " + compareArray);
 }
 //--------------------------------------------
 // find diferences in arrays, return difference

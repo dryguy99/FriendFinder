@@ -57,7 +57,6 @@ router.route('/survey')
 // create a basic card (accessed at POST http://localhost:3000/survey)
     .post(function(req, res) {
     	qArray = [];
-    	console.log(req.body);
     	qArray.push(req.body.name);
     	qArray.push(req.body.photo);
     	for (var i = 0; i < req.body.scores.length; i++) {
@@ -79,5 +78,5 @@ app.use('/', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Magic happens on port ' + port);
+//console.log('Magic happens on port ' + port);
 
