@@ -100,7 +100,6 @@ $(document).ready( function () {
 		if (q1 != 0 && q2 != 0 && q3 !=0 && name != "" && (address.includes("http://") || address.includes("https://") )) {
 			myObj.name = name;
 			myObj.photo = address;
-			console.log("MyOBJ: " + myObj);
 			$("#group1").css("display","none");
 			$("#group2").css("display", "block");
 			qArray.push(q1, q2, q3);
@@ -223,7 +222,10 @@ function getItem() {
 				}
 				var totalArray = findArray;
 				totalArray.sort();
+				console.log(" findArray: " + findArray);
+				console.log("totalArray: " + totalArray);
 				var answer = findArray.indexOf(totalArray[0]); // index of closest match
+				console.log("Index: " + answer);
 				// console.log closest match
 				console.log('Total Array: ' + totalArray + " Friend: " + data[answer].name + " Total: " + data[answer].total);
 				$("#friend").html(data[answer].name);
@@ -259,6 +261,7 @@ function createCompare (data) {
 	compareArray.push(parseInt(data.q8));
 	compareArray.push(parseInt(data.q9));
 	compareArray.push(parseInt(data.q10));
+	console.log("compareArray: " + compareArray);
 }
 //--------------------------------------------
 // find diferences in arrays, return difference
