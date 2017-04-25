@@ -103,7 +103,7 @@ $(document).ready( function () {
 			console.log("MyOBJ: " + myObj);
 			$("#group1").css("display","none");
 			$("#group2").css("display", "block");
-			qArray.push(q1, q2, q3, q4);
+			qArray.push(q1, q2, q3);
 			name = "";
 			address = "";
 			$('#name').val("");
@@ -112,9 +112,9 @@ $(document).ready( function () {
 		// test to see if survey is complete before displaying result and resetting survey
 		} else if (q8 != 0 && q9 != 0 && q10 != 0){
 			qArray.push(q8, q9, q10);
-			var total = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10;
+			var friendTotal = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10;
 			myObj.scores = qArray;
-			myObj.total = total;
+			myObj.total = friendTotal;
 			$("myiframe").css("display", "none");
 			console.log(myObj);
 			postItem(myObj);
@@ -133,6 +133,7 @@ $(document).ready( function () {
 				total:0};
 			name = "";
 			address = "";
+			friendTotal = 0;
 			q1, q2, q3, q4, q5, q6, q7, q8, q9, q10 = 0;
 			qArray = [];
 			$("#navbtns").css("display", "block");
@@ -263,12 +264,12 @@ function createCompare (data) {
 // find diferences in arrays, return difference
 function diff(arrayToCompareTo, comparedArray) {
 
-	var total = 0;
+	var difTotal = 0;
 	for(var i = 0; i < arrayToCompareTo.length; i++) {
 					
 		if (arrayToCompareTo[i] != comparedArray[i]) {
-			total += (Math.abs(arrayToCompareTo[i] - comparedArray[i]));
+			difTotal += (Math.abs(arrayToCompareTo[i] - comparedArray[i]));
 		}
 	}
-	return total;
+	return difTotal;
 }	
