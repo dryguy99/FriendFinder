@@ -42,7 +42,7 @@ router.use(function(req, res, next) {
 });
 // test route to make sure everything is working (accessed at GET http://localhost:3000/)
 // write routes here
-router.get('/', function(req, res) {
+router.get('/data', function(req, res) {
 	
 	orm.select("*", "friends", function (result) {
 		for (var i = 0; i < result.length; i++){

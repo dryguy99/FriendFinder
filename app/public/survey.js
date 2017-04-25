@@ -197,7 +197,7 @@ function postItem(myJson) {
 }//postItem()
 
 function getItem() {
-		var urlTemp = myurl + "/";
+		var urlTemp = myurl + "/data";
         $.ajax({
             type: "GET",
             url: urlTemp,
