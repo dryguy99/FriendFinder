@@ -213,6 +213,7 @@ function getItem() {
     //             data.sort(function(a, b){
 				//   return a.total < b.total;
 				// });
+				console.log(data);
 				for (var i = 0; i < data.length; i++) {
 					console.log("Name: " + data[i].name + " Total: " + data[i].total);
 				}
