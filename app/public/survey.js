@@ -210,13 +210,13 @@ function getItem() {
                 var thisName = data[idIndex].name;
                 var thisTotal = data[idIndex].total;
                 var thisId = data[idIndex].id;
-    //             data.sort(function(a, b){
-				//   return a.total < b.total;
-				// });
-				console.log(data);
-				for (var i = 0; i < data.length; i++) {
-					console.log("Name: " + data[i].name + " Total: " + data[i].total);
-				}
+                data.sort(function(a, b){
+				  return a.total < b.total;
+				});
+				// console.log(data);
+				// for (var i = 0; i < data.length; i++) {
+				// 	console.log("Name: " + data[i].name + " Total: " + data[i].total);
+				// }
 				for (var i = 0; i < data.length; i++) {
 					var tempTotal = Math.abs(thisTotal - data[i].total);
 					if (tempTotal === 0 && thisId != data[i].id) {
@@ -246,9 +246,9 @@ function getItem() {
 				}
 				$('#myModal').modal("show");
 				// display the data to the concole for testing
-                for (i=0; i<data.length; i++){
-                	console.log("ID: " + data[i].id + " Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
-                }
+                // for (i=0; i<data.length; i++){
+                // 	console.log("ID: " + data[i].id + " Name: " + data[i].name + " " + data[i].photo + " Total: " + data[i].total);
+                // }
             },
             error: function(jqXHR, textStatus, err) {
                 //show error message
