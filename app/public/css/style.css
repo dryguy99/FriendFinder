@@ -118,7 +118,7 @@ h3 {
 	font-size: 3.8vw;
 }
 a, #myfooter {
-	position: relative;
+	margin-top: 10vw;
 	font-family: 'Work Sans', sans-serif;
 	font-size: 3.0vw;
 	font-weight: 400;
