@@ -1,5 +1,5 @@
-var mypost = false;
-myurl = "https://friend-dryguy.herokuapp.com"
+
+const myurl = "https://friend-dryguy.herokuapp.com";//current url of server & app
 var q1 = 0;
 var q2 = 0;
 var q3 = 0;
@@ -91,14 +91,12 @@ $(document).ready( function () {
 		$(this).siblings().attr("data-selected", "false");
 
 	});
-// handles finishing survey, posting to database and retrieving results
+// handles completing survey, posting to database and retrieving results
 	$(document).on("click", ".mybtn", function () {
 		$(".error").css("display", "none");
 		name = $('#name').val();
 		address = $('#mypic').val();
-		
-		// $(this).attr("data-selected", "true");
-		
+		// test to see if all questions were answered before moving on to next section
 		if (q1 != 0 && q2 != 0 && q3 !=0 && name != "" && (address.includes("http://") || address.includes("https://") )) {
 			myObj.name = name;
 			myObj.photo = address;
@@ -111,7 +109,7 @@ $(document).ready( function () {
 			$('#name').val("");
 			$('#mypic').val("");
 			$('.setup').css("display", "none");
-
+		// test to see if survey is complete before displaying result and resetting survey
 		} else if (q8 != 0 && q9 != 0 && q10 != 0){
 			qArray.push(q8, q9, q10);
 			var total = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9 + q10;
@@ -140,12 +138,12 @@ $(document).ready( function () {
 			$("#navbtns").css("display", "block");
 			$('#survey').css("display", "block");
 			getItem();
-
+		// test to see if current section has been completed prior to moving on
 		} else if (q4 != 0 && q5 != 0 && q6 != 0 && q7 != 0) {
 			$("#group2").css("display","none");
-			$("#group3").css("display", "block")
+			$("#group3").css("display", "block");
 			qArray.push(q5, q6, q7);
-
+		// if any section is not complete display error message
 		} else {
 			$(".error").css("display", "block");
 		}
@@ -162,8 +160,8 @@ $(document).ready( function () {
 		$('#myq3').css('display', 'block');
 	});
 
-});
-
+}); // end document ready
+//-------------------------------------------------
 // post item to server
 function postItem(myJson) {
 
@@ -174,11 +172,8 @@ function postItem(myJson) {
             timeout: 2000,
             data: myJson,
             success: function(data) {
-                //show content
-                console.log(JSON.stringify(data));
-                response = true;
-                // $('.response').css('display', 'block');
-                // $('.response').html("<h3 class='text-center'>Success: Card Created!</h3>");
+                //show content to console for testing
+                //console.log(JSON.stringify(data));
             },
             error: function(jqXHR, textStatus, err) {
                 //show error message
@@ -187,63 +182,52 @@ function postItem(myJson) {
                 	console.log("waiting for server...");
                 	postItem(myJson);
                 }
-                // response = true;
-                // $('.response').css('display', 'block');
-                // $('.response').html("<h3 class='text-center'>Status: " + textStatus + ", Error: "+ err + "<br> Please contact System Admin.</h3>");
             }
         });
-    mypost = true;
 
 }//postItem()
-
+//------------------------------------------------
+// retrieve all data from the friend database
 function getItem() {
 		var urlTemp = myurl + "/data";
         $.ajax({
             type: "GET",
             url: urlTemp,
             timeout: 4000,
-            //data: { deck: utype },
+     
             success: function(data) {
                 //show content
                 console.log('Success!:' + data[0]);
-                var idIndex = data.length - 1;
-                var thisName = data[idIndex].name;
+                var idIndex = data.length - 1;  // index of current user
+                var thisName = data[idIndex].name; // name of current user
+                var myArray = []; //Array of answers to the questions for current user
+                myArray.push(data[idIndex].q1);
+                myArray.push(data[idIndex].q2);
+                myArray.push(data[idIndex].q3);
+                myArray.push(data[idIndex].q4);
+                myArray.push(data[idIndex].q5);
+                myArray.push(data[idIndex].q6);
+                myArray.push(data[idIndex].q7);
+                myArray.push(data[idIndex].q8);
+                myArray.push(data[idIndex].q9);
+                myArray.push(data[idIndex].q10);
                 var thisTotal = data[idIndex].total;
-                var thisId = data[idIndex].id;
-                data.sort(function(a, b){
-				  return a.total < b.total;
-				});
-				// console.log(data);
-				// for (var i = 0; i < data.length; i++) {
-				// 	console.log("Name: " + data[i].name + " Total: " + data[i].total);
-				// }
-				for (var i = 0; i < data.length; i++) {
-					var tempTotal = Math.abs(thisTotal - data[i].total);
-					if (tempTotal === 0 && thisId != data[i].id) {
-						$("#friend").html(data[i].name);
-                		$("#photo").attr("src", data[i].photo);
-                		break;
-					} else if (tempTotal === 0 && thisId == data[i].id && i === 0) {
-						$("#friend").html(data[i+1].name);
-                		$("#photo").attr("src", data[i+1].photo);
-                		break;
-					} else if (tempTotal === 0 && thisId == data[i].id && ((i+1) === data.length)){
-						$("#friend").html(data[i-1].name);
-                		$("#photo").attr("src", data[i-1].photo);
-                		break;
-					} else if (tempTotal === 0 && thisId == data[i].id) {
-						var f1 = Math.abs(thisTotal - data[i-1].total);
-						var f2 = Math.abs(thisTotal - data[i+1].total);
-						if (f1 > f2) {
-							$("#friend").html(data[i+1].name);
-                			$("#photo").attr("src", data[i+1].photo);
-						} else {
-							$("#friend").html(data[i-1].name);
-                			$("#photo").attr("src", data[i-1].photo);
-						}
-						break;
-					}
+                // console.log current user
+ 				console.log('My Array: ' + myArray + " Me: " + thisName + " Total: " + thisTotal);
+				var findArray = []; //array of differences of answers with other registered friends
+				for (var i = 0; (i+1) < data.length; i++) {
+					// create an array of the abs differences in scores
+					createCompare(data[i]);
+					findArray.push(diff(myArray, compareArray));
 				}
+				var totalArray = findArray;
+				totalArray.sort();
+				var answer = findArray.indexOf(totalArray[0]); // index of closest match
+				// console.log closest match
+				console.log('Total Array: ' + totalArray + " Friend: " + data[answer].name + " Total: " + data[answer].total);
+				$("#friend").html(data[answer].name);
+                $("#photo").attr("src", data[answer].photo);
+                // DISPLAY Friend in Modal
 				$('#myModal').modal("show");
 				// display the data to the concole for testing
                 // for (i=0; i<data.length; i++){
@@ -259,3 +243,32 @@ function getItem() {
             }
         });
 }//getItem()
+//-------------------------------------------
+// create compare array
+var compareArray = [];
+function createCompare (data) {
+	compareArray = [];
+	compareArray.push(data.q1);
+	compareArray.push(data.q2);
+	compareArray.push(data.q3);
+	compareArray.push(data.q4);
+	compareArray.push(data.q5);
+	compareArray.push(data.q6);
+	compareArray.push(data.q7);
+	compareArray.push(data.q8);
+	compareArray.push(data.q9);
+	compareArray.push(data.q10);
+}
+//--------------------------------------------
+// find diferences in arrays, return difference
+function diff(arrayToCompareTo, comparedArray) {
+
+	var total = 0;
+	for(var i = 0; i < arrayToCompareTo.length; i++) {
+					
+		if (arrayToCompareTo[i] != arrayToCompareTo[i]) {
+			total += (Math.abs(arrayToCompareTo[i] - arrayToCompareTo[i]));
+		}
+	}
+	return total;
+}	
