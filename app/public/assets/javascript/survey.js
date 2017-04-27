@@ -93,6 +93,7 @@ $(document).ready( function () {
 	});
 // handles completing survey, posting to database and retrieving results
 	$(document).on("click", ".mybtn", function () {
+		event.preventDefault();
 		$(".error").css("display", "none");
 		name = $('#name').val();
 		address = $('#mypic').val();
